@@ -1,0 +1,53 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[safe]
+	directory = /mnt/shared/Polymathy/mind-palace
+	directory = /mnt/shared/Polymathy/University/UMich/Fall 2022/CIS427-ComputerNetworks/cis427_project1
+
+[user]
+    name = Rohit Nair
+    email = 6954311+rnair98@users.noreply.github.com
+    username = rnair98
+
+[github]
+    user = rnair98
+
+[init]
+    defaultBranch = master
+
+[core]
+    editor = nvim
+
+[web]
+    browser = google-chrome
+
+
+[url "https://github.com/"]
+    insteadOf = gh:
+
+[url "https://gist.github.com"]
+    insteadOf = gist:
+
+[color]
+    ui = auto
+
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold

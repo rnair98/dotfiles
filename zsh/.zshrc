@@ -16,7 +16,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM=xterm
 export GTK_PATH=/usr/lib/gtk-3.0
-export DENO_INSTALL="/home/marethyu/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 eval "$(zoxide init zsh)"

@@ -78,12 +78,12 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 stow doom-emacs
 
 # install SDKMAN!
-curl -s "https://get.sdkman.io" | zsh
+curl -s "https://get.sdkman.io" | bash
 source "~/.sdkman/bin/sdkman-init.sh"
 sdk install java
 
 # install Volta!
-curl https://get.volta.sh | zsh
+curl https://get.volta.sh | bash
 . ~/.volta/bin/volta install node
 . ~/.volta/bin/volta install npm@latest
 

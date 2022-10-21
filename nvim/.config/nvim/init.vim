@@ -36,6 +36,8 @@ Plug 'preservim/tagbar' "F8
 Plug 'cjrh/vim-conda'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-orgmode/orgmode'
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 
@@ -101,6 +103,9 @@ let g:coc_global_extensions = [
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
+
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
 highlight NvimTreeFolderIcon guibg=gray
 

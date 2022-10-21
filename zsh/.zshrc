@@ -49,6 +49,8 @@ export TERM="xterm-color"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=$LC_CTYPE
 export TERM="xterm-color"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=$LC_CTYPE
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'

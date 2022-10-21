@@ -39,6 +39,8 @@ Plug 'nvim-orgmode/orgmode'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 Plug 'vimpostor/vim-tpipeline'
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 

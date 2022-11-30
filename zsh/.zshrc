@@ -15,7 +15,7 @@ fi
 
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.emacs.d/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 export TERM=xterm
 export TMUX=xterm-256color
 export GTK_PATH=/usr/lib/gtk-3.0
@@ -48,6 +48,7 @@ export LANG=en_US.UTF-8
 export TERM="xterm-color"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=$LC_CTYPE
+export TERM="xterm-color"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -60,6 +61,7 @@ alias -g mm="micromamba"
 alias zshconfig="mate ~/.zshrc"
 alias -g vim="nvim"
 alias -g goto="z"
+alias -g ls="ls"
 alias deactivate="conda deactivate"
 alias e="emacsclient -t"
 alias cat="bat"

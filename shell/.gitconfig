@@ -7,6 +7,9 @@
 [safe]
 	directory = /mnt/shared/Polymathy/mind-palace
 	directory = /mnt/shared/Polymathy/University/UMich/Fall 2022/CIS427-ComputerNetworks/cis427_project1
+	directory = /home/rohit/.docker/devenvironments/repo_feed-admiring_chaum/repository
+	directory = /mnt/shared/Polymathy/University/UMich/Fall 2022/STAT305-DataScience/stat305project
+	directory = /mnt/shared/Polymathy/University/UMich/Fall 2022/CIS411-NaturalLanguageProcessing/CIS411FinalProject
 
 [user]
     name = Rohit Nair
@@ -51,3 +54,6 @@
     added = green bold
     changed = yellow bold
     untracked = red bold
+[credential "https://gitlab.com"]
+	helper = 
+	helper = !/usr/bin/glab auth git-credential

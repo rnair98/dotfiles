@@ -13,7 +13,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 export TERM=xterm
 export GTK_PATH=/usr/lib/gtk-3.0
 export DENO_INSTALL="$HOME/.deno"
@@ -21,8 +21,16 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 eval "$(zoxide init zsh)"
 
+autoload -Uz compinit
+compinit
+
 # source plugins
 source ~/.zsh_plugins.sh
+
+# use nix
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; 
+  then . $HOME/.nix-profile/etc/profile.d/nix.sh;
+fi
 
 # customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -35,6 +43,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=$LC_CTYPE
+export TERM="xterm-color"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -47,35 +56,45 @@ alias -g mm="micromamba"
 alias zshconfig="mate ~/.zshrc"
 alias -g vim="nvim"
 alias -g goto="z"
+alias -g ls="ls"
 alias deactivate="conda deactivate"
+alias e="emacsclient -t"
+
+alias md="mkdir -p"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/nix/store/bzcjvsq2d2d4iwyb2x5ssf8bafcw5bqm-micromamba-0.25.0/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/home/marethyu/micromamba";
-__mamba_setup="$('/nix/store/bzcjvsq2d2d4iwyb2x5ssf8bafcw5bqm-micromamba-0.25.0/bin/micromamba' shell hook --shell zsh --prefix '/home/marethyu/micromamba' 2> /dev/null)"
+export EMACS_HOME="$HOME/.emacs.d"
+export PATH="$EMACS_HOME/bin:$PATH"
+
+export RUST_HOME="$HOME/.cargo"
+export PATH="$RUST_HOME/bin:$PATH"
+
+export BUN_HOME="$HOME/.bun"
+export PATH="$BUN_HOME/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/rohit/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    if [ -f "/home/marethyu/micromamba/etc/profile.d/micromamba.sh" ]; then
-        . "/home/marethyu/micromamba/etc/profile.d/micromamba.sh"
+    if [ -f "/home/rohit/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/rohit/miniconda3/etc/profile.d/conda.sh"
     else
-        export  PATH="/home/marethyu/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+        export PATH="/home/rohit/miniconda3/bin:$PATH"
     fi
 fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-
+unset __conda_setup
+# <<< conda initialize <<<
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # bun completions
-[ -s "/home/marethyu/.bun/_bun" ] && source "/home/marethyu/.bun/_bun"
+[ -s "/home/rohit/.bun/_bun" ] && source "/home/rohit/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"

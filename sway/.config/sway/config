@@ -23,7 +23,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /mnt/shared/Photos/Wallpapers/fern.jpg fill
+output * bg ~/Pictures/mojave.jpg fit #000000
 #
 # Example configuration:
 #
@@ -36,9 +36,7 @@ output * bg /mnt/shared/Photos/Wallpapers/fern.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -66,6 +64,12 @@ exec xrdb ~/.Xresources
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Open files
+    bindsym $mod+F3 exec nautilus
+    
+    # Ulauncher
+    bindsym $mod+Ctrl+Space exec ulauncher
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -103,6 +107,7 @@ exec xrdb ~/.Xresources
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
+
     bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
@@ -205,24 +210,27 @@ bindsym Print exec grim screenshot.png
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
+  swaybar_command waybar
+  position top
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#    status_command i3blocks
 
-    colors {
-        background #00050A
-        statusline #F9FAF9
-        separator  #454947
+
+#while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+#    colors {
+#        background #00050A
+#        statusline #F9FAF9
+#        separator  #454947
 
 #                      border  backgr. text
-        focused_workspace  #F9FAF9 #A7C3BD #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #A7C3BD #2C2C2C #F9FAF9
-        urgent_workspace   #A7C3BD #FDF6E3 #E5201D
-    }
+#        focused_workspace  #F9FAF9 #A7C3BD #292F34
+#        active_workspace   #595B5B #353836 #FDF6E3
+#        inactive_workspace #595B5B #222D31 #EEE8D5
+#        binding_mode       #A7C3BD #2C2C2C #F9FAF9
+#        urgent_workspace   #A7C3BD #FDF6E3 #E5201D
+#    }
 }
 
 bindsym $mod+m bar mode toggle
@@ -238,8 +246,10 @@ bindsym $mod+m bar mode toggle
   client.background       #2B2C2B
 
 # Configure border style
-default_border pixel 1
-default_floating_border normal
+default_border pixel 0
+default_floating_border pixel 0
+#for_window [class="^.*"] border pixel 0
+
 
 # Hide borders
 hide_edge_borders none

@@ -25,6 +25,7 @@ set $menu rofi -modi drun -show drun \
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/mojave.jpg fit #000000
+output * bg ~/Pictures/mojave.jpg fit #000000
 #
 # Example configuration:
 #
@@ -38,7 +39,7 @@ output * bg ~/Pictures/mojave.jpg fit #000000
 #
 exec swayidle -w \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
- 
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -216,6 +217,8 @@ bindsym Print exec grim screenshot.png
 bar {
   swaybar_command waybar
   position top
+  swaybar_command waybar
+  position top
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
 #    status_command i3blocks
@@ -253,8 +256,8 @@ bindsym $mod+m bar mode toggle
 default_border pixel 0
 default_floating_border pixel 0
 #for_window [class="^.*"] border pixel 0
- 
- 
+
+
 # Hide borders
 hide_edge_borders none
  

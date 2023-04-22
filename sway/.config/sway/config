@@ -38,6 +38,7 @@ output * bg ~/Pictures/mojave.jpg fit #000000
 #
 exec swayidle -w \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+ 
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -216,6 +217,8 @@ bindsym Print exec grim screenshot.png
 bar {
   swaybar_command waybar
   position top
+  swaybar_command waybar
+  position top
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
 #    status_command i3blocks
@@ -229,6 +232,12 @@ bar {
 #        separator  #454947
  
 #                      border  backgr. text
+#        focused_workspace  #F9FAF9 #A7C3BD #292F34
+#        active_workspace   #595B5B #353836 #FDF6E3
+#        inactive_workspace #595B5B #222D31 #EEE8D5
+#        binding_mode       #A7C3BD #2C2C2C #F9FAF9
+#        urgent_workspace   #A7C3BD #FDF6E3 #E5201D
+#    }
 #        focused_workspace  #F9FAF9 #A7C3BD #292F34
 #        active_workspace   #595B5B #353836 #FDF6E3
 #        inactive_workspace #595B5B #222D31 #EEE8D5
@@ -263,8 +272,8 @@ default_floating_border pixel 0
 default_border pixel 0
 default_floating_border pixel 0
 #for_window [class="^.*"] border pixel 0
-
-
+ 
+ 
 # Hide borders
 hide_edge_borders none
  

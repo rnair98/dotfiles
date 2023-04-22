@@ -51,3 +51,6 @@
     added = green bold
     changed = yellow bold
     untracked = red bold
+[credential "https://gitlab.com"]
+	helper = 
+	helper = !/usr/bin/glab auth git-credential

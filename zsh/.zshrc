@@ -12,15 +12,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.emacs.d/bin:$PATH
 export TERM=xterm
+export TMUX=xterm-256color
 export GTK_PATH=/usr/lib/gtk-3.0
 export DENO_INSTALL="/home/marethyu/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-
+export PATH="/var/lib/snapd/snap/bin:$PATH"
 eval "$(zoxide init zsh)"
-
+#eval "$(tmux attach || tmux)"
+#clear
 # source plugins
 source ~/.zsh_plugins.sh
 
@@ -48,6 +52,7 @@ alias zshconfig="mate ~/.zshrc"
 alias -g vim="nvim"
 alias -g goto="z"
 alias deactivate="conda deactivate"
+
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

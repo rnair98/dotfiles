@@ -19,7 +19,7 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.emacs.d/bin:$PATH
 export TERM=xterm
 export TMUX=xterm-256color
 export GTK_PATH=/usr/lib/gtk-3.0
-export DENO_INSTALL="/home/marethyu/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/var/lib/snapd/snap/bin:$PATH"
 eval "$(zoxide init zsh)"

@@ -172,11 +172,59 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-
+bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+q kill
 
+# start program launcher
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#00050A' -sf '#00050A' -sb '#fffbf6' -nf '#FFFBF6' 
+
+#start rofi
+#bindsym $mod+Shift+Return exec --no-startup-id sh /home/arconte/rofi-search.sh
+
+# launch categorized menu
+bindsym $mod+z exec --no-startup-id morc_menu
+
+exec_always --no-startup-id feh --bg-fill /home/arconte/Pictures/blackwaves.jpg
+
+exec_always --no-startup-id alttab
+
+for_window [class="^.*"] border pixel 0
+
+exec /usr/bin/compton --config /home/arconte/.compton.conf~.i3/config
+################################################################################################
+## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
+################################################################################################
+
+exec --no-startup-id volumeicon
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+m exec pavucontrol
+
+################################################################################################
+
+# Screen brightness controls
+# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+
+# Start Applications
+bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+F2 exec thorium-browser
+bindsym $mod+F3 exec nautilus
+# bindsym $mod+F3 exec ranger
+bindsym $mod+Shift+F3 exec pkexec nautilus
+bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+# focus_follows_mouse no
 # exit-menu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 

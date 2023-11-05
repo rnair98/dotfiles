@@ -38,13 +38,14 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-orgmode/orgmode'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
+Plug 'vimpostor/vim-tpipeline'
 
 call plug#end()
 
 set t_Co=256
-colorscheme minimalist
+colorscheme nord
 
-let g:airline_theme='minimalist'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -108,6 +109,13 @@ inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<T
 inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
 highlight NvimTreeFolderIcon guibg=gray
+
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
+EOF
 
 lua require 'nvim-tree-config'
 

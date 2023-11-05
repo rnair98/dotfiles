@@ -36,13 +36,14 @@ Plug 'preservim/tagbar' "F8
 Plug 'cjrh/vim-conda'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-orgmode/orgmode'
+Plug 'vimpostor/vim-tpipeline'
 
 call plug#end()
 
 set t_Co=256
-colorscheme minimalist
+colorscheme nord
 
-let g:airline_theme='minimalist'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -103,6 +104,13 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
 highlight NvimTreeFolderIcon guibg=gray
+
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
+EOF
 
 lua require 'nvim-tree-config'
 

@@ -28,7 +28,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -41,7 +41,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb '#00050A' -sf '#00050A' -sb '#
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-exec_always --no-startup-id feh --bg-scale /home/arconte/Pictures/waves.webp
+exec_always --no-startup-id feh --bg-fill /home/arconte/Pictures/blackwaves.jpg
 
 exec_always --no-startup-id alttab
 
@@ -66,7 +66,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox
+bindsym $mod+F2 exec thorium-browser
 bindsym $mod+F3 exec nautilus
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pkexec nautilus

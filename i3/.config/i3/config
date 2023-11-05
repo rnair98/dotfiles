@@ -173,6 +173,7 @@ bindsym $mod+r mode "resize"
 
 # start a terminal
 bindsym $mod+Return exec kitty
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -286,6 +287,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+g layout tabbed
+bindsym $mod+g layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -357,17 +359,17 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="alacritty"] $ws1
+assign [class="kitty"] $ws1
 #assign [class="(?i)firefox"] $ws2
-assign [class="Thunar"] $ws3
+assign [class="Nautilus"] $ws3
 assign [class="Thunderbird"] $ws4
 assign [class="TelegramDesktop"] $ws5
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Xfce4-terminal] focus
-for_window [class=alacritty] focus
+for_window [class=kitty] focus
 #for_window [class=(?i)firefox] focus
-for_window [class=Thunar] focus
+for_window [class=Nautilus] focus
 for_window [class=Thunderbird] focus
 for_window [class=TelegramDesktop] focus
 
@@ -601,7 +603,7 @@ strip_workspace_numbers yes
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+d exec rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+		-config ~/.config/rofi/nord.rasi
 
 #bindsym F9 exec rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi

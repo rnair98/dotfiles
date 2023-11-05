@@ -2,7 +2,7 @@ configuration {
     dpi: 192;
     modi: "window,run,drun,ssh";
     show-icons: true;
-    theme: "nord";
+    @theme "nord";
     font: "CaskaydiaCove Nerd Font Mono";
 }
 

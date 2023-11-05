@@ -1,3 +1,5 @@
+antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,6 +9,10 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export TERM=xterm
+export GTK_PATH=/usr/lib/gtk-3.0
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 eval "$(zoxide init zsh)"
 
@@ -24,9 +30,17 @@ fi
 # customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
+
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=$LC_CTYPE
 export TERM="xterm-color"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=$LC_CTYPE
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -35,6 +49,7 @@ else
 fi
 
 # aliases
+alias -g mm="micromamba"
 alias zshconfig="mate ~/.zshrc"
 alias -g vim="nvim"
 alias -g goto="z"
@@ -153,7 +168,7 @@ eval "$(pyenv virtualenv-init -)"
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/arconte/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    eval "$__mamba_setup"
 else
     if [ -f "/home/arconte/miniconda3/etc/profile.d/conda.sh" ]; then
         . "/home/arconte/miniconda3/etc/profile.d/conda.sh"

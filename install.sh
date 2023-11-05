@@ -24,7 +24,6 @@ nix-env -iA \
     nixpkgs.bat \
     nixpkgs.tealdeer \
     nixpkgs.neovim \
-    nixpkgs.vimPlugins.vim-plug \
     nixpkgs.emacs-nox \
     nixpkgs.fd \
     nixpkgs.procs \
@@ -35,9 +34,8 @@ nix-env -iA \
     nixpkgs.htop \
     nixpkgs.grex \
     nixpkgs.zoxide \
-    nixpkgs.julia \
-    #nixpkgs.octave \
-    #nixpkgs.R \
+    nixpkgs.octave \
+    nixpkgs.R \
     #nixpkgs.fira-code \
     #nixpkgs.cm_unicode \
     #nixpkgs.lmmath \
@@ -59,6 +57,10 @@ nix-env -iA \
     #nixpkgs.librewolf - for graphical installs only\
     #nixpkgs.vscode - for graphical installs only \
     #nixpkgs.alacritty - for graphical installs only
+
+# install vim plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # add zsh as default login shell
 command -v zsh | sudo tee -a /etc/shells

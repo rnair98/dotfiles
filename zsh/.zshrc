@@ -1,8 +1,3 @@
-if [ -f $HOME/.nix-profile/etc/profile.d/nix.sh ];
-then
-	source $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

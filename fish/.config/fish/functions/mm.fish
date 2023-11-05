@@ -1,3 +1,3 @@
 function mm --wraps=micromamba --description 'alias mm=micromamba'
-  micromamba $argv; 
+    micromamba $argv; 
 end

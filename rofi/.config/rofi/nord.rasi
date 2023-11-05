@@ -1,38 +1,85 @@
-/* Useful reference: https://www.mankier.com/5/rofi-theme#Layouti */
+/*
+ * ROFI color theme
+ *
+ * Based on Something Found in the Internet
+ *
+ * User: Contributors
+ * Copyright: *!
+ */
 
-* {
-    background-color: rgba(76,86,106,0.7);
-    color: #eceff4;
-    border-color: #434c5e;
-    margin: 0;
-    padding: 0;
-    spacing: 0;
+configuration {
+  font: "CaskaydiaCove Nerd Font Medium 10";
 
-    /* Enable debug red lines around everything */
-    /* border: 1px; */
-    /* border-color: red; */
+  drun {
+    display-name: "";
+  }
+
+  run {
+    display-name: "";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
 }
 
-prompt {
-    padding: 20 50;
-    background-color: #5e81ac;
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  bg: #2E3440;
+  fg: #81A1C1;
+
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+  transparency: "real";
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+inputbar {
+  background-color: @bg;
+  children: [prompt, entry];
 }
 
 entry {
-    padding: 20;
+  background-color: inherit;
+  padding: 12px 3px;
 }
 
-case-indicator {
-    padding: 20;
+prompt {
+  background-color: inherit;
+  padding: 12px;
+}
+
+listview {
+  lines: 8;
 }
 
 element {
-    padding: 20;
-    border: 1 0 0 0;
+  children: [element-icon, element-text];
 }
 
-element selected {
-    background-color: #434c5e;
+element-icon {
+  padding: 10px 10px;
 }
 
-/* vim:set ft=css */
+element-text {
+  padding: 10px 0;
+}
+
+element-text selected {
+  text-color: @fg;
+}

@@ -6,6 +6,9 @@
 super + Return
 	kitty
 
+super + alt + t
+	thorium-browser
+
 # program launcher
 super + @space
 	rofi -show drun

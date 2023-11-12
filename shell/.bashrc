@@ -14,6 +14,9 @@ then
 fi
 export PATH
 
+export DOOM_HOME="$HOME/.config/emacs"
+export PATH="$DOOM_HOME/bin:$PATH"
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -121,6 +124,7 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
+alias arandr='python ~/arandr/arandr'
 
 xhost +local:root > /dev/null 2>&1
 

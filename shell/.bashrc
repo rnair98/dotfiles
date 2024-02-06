@@ -2,6 +2,22 @@
 # ~/.bashrc
 #
 
+eval "$(zoxide init bash)"
+
+# Load the shell dotfiles
+for file in ~/.{bash_prompt,exports,aliases,functions,extras}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
+
+# Enable git branch name completion.
+# curl -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+# Autocomplete git aliases
+
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
         . /etc/bashrc
@@ -13,9 +29,6 @@ then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
-
-export DOOM_HOME="$HOME/.config/emacs"
-export PATH="$DOOM_HOME/bin:$PATH"
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -104,10 +117,6 @@ if ${use_color} ; then
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
 
-	alias ls='ls --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
 else
 	if [[ ${EUID} == 0 ]] ; then
 		# show root@ when we don't have colors
@@ -118,13 +127,6 @@ else
 fi
 
 unset use_color safe_term match_lhs sh
-
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-alias arandr='python ~/arandr/arandr'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -188,19 +190,17 @@ fi
 unset rc
 . "$HOME/.cargo/env"
 
-export PATH="$PATH:$HOME/dev/flutter/bin"
-export PATH="$PATH:$HOME/android-studio/bin"
-export PATH="$PATH:/snap/bin"
-export CHROME_EXECUTABLE="thorium-browser"
+#source /usr/share/doc/fzf/examples/key-bindings.bash
+#source /usr/share/doc/fzf/examples/completion.bash
 
 
-export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+eval "$(starship init bash)"
+eval "$(mcfly init bash)"
+
+source /home/rohit/.config/broot/launcher/bash/br

@@ -1,0 +1,125 @@
+#!/bin/bash
+
+bold=$(tput bold)
+blue=$(tput setaf 4)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+reset=$(tput sgr0)
+
+function command_exists() {
+    command -v "$1" &> /dev/null
+}
+function print_step() {
+    echo "${bold}${blue}=> $1${reset}"
+}
+function print_success() {
+    echo "${bold}${green}$1${reset}"
+}
+function print_error() {
+    echo "${bold}${red}$1${reset}"
+}
+
+function cheat() {
+  curl "cheat.sh/$1"
+}
+
+function cdls() {
+    z "$@" && exa --icons --color=auto -haFGx -1
+}
+
+# a function that converts pdfs to text when you cat them
+function catpdf() {
+    if ! [[ "$1" == *.pdf ]]; then
+        echo "Error: you must provide a .pdf file"
+    fi
+
+    pdftotext "$1"
+    cat "${1/.pdf/.txt}"
+    rm "${1/.pdf/.txt}"
+}
+
+function csvlook() {
+    ~/.pyenv/shims/csvlook "$@" | trim | sed 's/- | -/--|--/g;s/| -/|--/g;s/- |/--|/;s/|/|/g;2s/-/-/g'
+}
+
+function note() {
+    sed -i "1s;^;$1\n;" $HOME/notes/notes.md
+    glow $HOME/Documents/notes.md
+}
+
+function rendermd() {
+    # check if the input file has a .md extension
+    if [[ "$1" != *.md ]]; then
+        echo "Error: input file must have an .md extension."
+        return 1
+    fi
+    while true; do
+        clear && printf '\e[3J' # clear scrollback buffer
+	sed 's/-->/\&rarr;/g' "$1" > _rendering.md
+	glow "_rendering.md"
+	sleep 5
+    done
+    rm _rendering.md
+}
+
+# create a new python env
+function mkenv() {
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install --upgrade pip
+}
+
+function setup_python_project() {
+	print_step "Setting up the python project environment..."
+	echo ".venv/" >> .gitignore
+
+	mkenv
+	print_success "Python virtual environment created and activated."
+
+	# create .pre-commit-config.yaml with the provided configuration
+	cat <<EOF > .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+  - repo: https://github.com/bwhmather/ssort
+    rev: v0.11.6
+    hooks:
+      - id: ssort
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--filter-files"]
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        args: ["--line-length", "120"]
+EOF
+	# install pre-commit hooks
+	pre-commit install 
+	print_success "Pre-commit hooks installed."
+}
+
+function initialize_git() {
+	if ! command_exists git; then
+		print_error "Git could not be found. Please install it before proceeding."
+		return 1
+	fi
+
+	print_step "Initializing git repository..."
+	git init -b main
+
+	if "$is_python_project" == "yes"; then
+		setup_python_project
+	fi
+
+	git add .
+	git commit -m "Initial commit"
+	print_success "Git repository initialized successfully."
+}
+	
+

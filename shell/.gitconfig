@@ -10,6 +10,7 @@
 	directory = /home/rohit/.docker/devenvironments/repo_feed-admiring_chaum/repository
 	directory = /mnt/shared/Polymathy/University/UMich/Fall 2022/STAT305-DataScience/stat305project
 	directory = /mnt/shared/Polymathy/University/UMich/Fall 2022/CIS411-NaturalLanguageProcessing/CIS411FinalProject
+	directory = /run/media/rohit/Shared Drive/VM/macos/OSX-KVM
 
 [user]
     name = Rohit Nair

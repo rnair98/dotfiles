@@ -17,8 +17,11 @@ command_timeout=100
 [shell]
 disabled = false
 fish_indicator = "󰈺"
+bash_indicator = ""
 
 [os]
 disabled = false
 format = "$symbol "
 symbols.Arch = ""
+symbols.Redhat=""
+symbols.RedHatEnterprise=""

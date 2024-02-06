@@ -1,0 +1,39 @@
+export EDITOR=nvim
+export CDPATH=$HOME:$HOME/Documents:$HOME/Downloads:$HOME/dotfiles:$HOME/notes:$HOME/dev
+
+export DOOM_HOME="$HOME/.config/emacs"
+export PATH="$DOOM_HOME/bin:$PATH"
+
+export MESA_GL_VERSION_OVERRIDE=3.3
+export PATH="$PATH:$HOME/dev/flutter/bin"
+export PATH="$PATH:$HOME/android-studio/bin"
+export PATH="$PATH:/snap/bin"
+export CHROME_EXECUTABLE="thorium-browser"
+
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=0
+export DOCKER_DEFAULT_PLATFORM=linux/x86_64
+
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# CTRL-/ to toggle small preview window to see the full command
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PIP_INDEX_URL=https://pypi.python.org/simple
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export SDKMAN_DIR="$HOME/.sdkman"
+
+export DSUTILS="$HOME/dsutils"
+export PATH=$DSUTILS:$PATH

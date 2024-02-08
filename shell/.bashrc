@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+. "$HOME/.cargo/env"
+
 eval "$(zoxide init bash)"
 
 # Load the shell dotfiles
@@ -188,7 +190,6 @@ fi
 # <<< conda initialize <<<
 
 unset rc
-. "$HOME/.cargo/env"
 
 #source /usr/share/doc/fzf/examples/key-bindings.bash
 #source /usr/share/doc/fzf/examples/completion.bash
@@ -203,4 +204,4 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(starship init bash)"
 eval "$(mcfly init bash)"
 
-source /home/rohit/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br

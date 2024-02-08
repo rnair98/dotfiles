@@ -35,5 +35,5 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 
-export DSUTILS="$HOME/dsutils"
+export DSUTILS="$HOME/dotfiles/dsutils"
 export PATH=$DSUTILS:$PATH

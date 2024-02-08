@@ -23,6 +23,12 @@ function cheat() {
   curl "cheat.sh/$1"
 }
 
+function download(){
+    cd $HOME/Downloads
+    git clone "https://github.com/$1.git"
+    cd -
+}
+
 function cdls() {
     z "$@" && exa --icons --color=auto -haFGx -1
 }

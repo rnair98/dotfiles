@@ -181,13 +181,13 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb '#00050A' -sf '#00050A' -sb '#
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/blacksands.jpg
+exec_always --no-startup-id feh --bg-center $HOME/Pictures/wallpapers/ouroboros.jpg
 
 exec_always --no-startup-id alttab
 
 for_window [class="^.*"] border pixel 0
 
-exec /usr/bin/compton --config /home/arconte/.compton.conf~.i3/config
+exec /usr/bin/compton --config /home/arconte/.compton.conf
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -527,6 +527,9 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
+		mode hide
+		hidden_state hide
+		modifier $mod
 		font pango: System-UI Regular 8
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position top

@@ -66,7 +66,7 @@ alias aliases="$EDITOR $HOME/.aliases"
 alias exports="$EDITOR $HOME/.exports"
 alias funcs="$EDITOR $HOME/.functions"
 alias i3config="$EDITOR $HOME/.config/i3/config"
-alias setupedit="$EDITOR $HOME/.scripts/install.sh"
+alias setupedit="$EDITOR $HOME/.scripts/deb_install.sh"
 
 alias ggpur='ggu'
 alias g='git'

@@ -1,0 +1,17 @@
+Hotkeys
+================
+
+Ctrl+C -> Kill active process
+Ctrl+K -> Exit shell
+Ctrl+L -> Clear the screen
+Ctrl+Z -> Put process in background
+Ctrl+A -> Go to front of line
+Ctrl+E -> Go to end of line
+Ctrl+F -> Go forward one character
+Ctrl+B -> Go back one character
+Alt+F -> Go forward one word
+Alt+B -> Go back one word
+!! -> Run previous command
+!<cmd> -> Run previous matching command
+Ctrl+x Ctrl+e -> Open line in $EDITOR
+

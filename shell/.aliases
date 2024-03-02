@@ -67,6 +67,9 @@ alias exports="$EDITOR $HOME/.exports"
 alias funcs="$EDITOR $HOME/.functions"
 alias i3config="$EDITOR $HOME/.config/i3/config"
 alias setupedit="$EDITOR $HOME/.scripts/deb_install.sh"
+alias fman="compgen -c | fzf | xargs man"
+alias fdef='declare -f "$(compgen -A function | fzf | xargs)"'
+alias fsize="/usr/bin/du -ah . | sort -hr | head -n 10"
 
 alias ggpur='ggu'
 alias g='git'

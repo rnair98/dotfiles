@@ -12,6 +12,8 @@ end
 set -U SXHKD_SHELL /usr/bin/bash
 set -gx VOLTA_HOME $HOME/.volta
 set -gx PATH $VOLTA_HOME/bin $PATH
+set -gx DOOM_HOME $HOME/.config/emacs
+set -gx PATH $DOOM_HOME/bin $PATH
 set -Ux RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu
 set -gx PYENV_ROOT "$HOME/.pyenv"
 set -gx PATH $PYENV_ROOT/bin $PATH

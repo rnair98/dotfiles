@@ -13,5 +13,6 @@
 		"typescript.tsx",
 		"graphql"
   ],
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
+  "snippets.ultisnips.pythonPrompt": false
 }
